@@ -1,11 +1,12 @@
-#!/bin/bash
 # Update package list and install dependencies
-sudo apt-get update
-sudo apt-get install -y wget unzip xvfb libxi6 libgconf-2-4
+apt-get update
+apt-get install -y wget unzip xvfb libxi6 libgconf-2-4
 
 # Install Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome-stable_current_amd64.deb
+apt install -y ./google-chrome-stable_current_amd64.deb
 
-# Install ChromeDriver using webdriver-manager
-python3 -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager().install()"
+# Install ChromeDriver
+CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+wget https://chromedriver.storage.googleapis.com/${CHROME_VERSION}/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip -d /usr/local/bin/
