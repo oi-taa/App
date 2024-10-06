@@ -30,7 +30,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = "AIzaSyAP_wxwPqsddoHlsNghP0iInjcH0d3M6rc"
 
 if not GOOGLE_API_KEY:
     raise ValueError("GOOGLE_API_KEY is not set. Please configure it as an environment variable.")
